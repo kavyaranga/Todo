@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="store" >
+<head>
+<meta charset="ISO-8859-1">
+<script src="js/angular.min.js"></script>
+    <script> 
+     var app = angular.module('store', [ ]);
+      app.controller("SimpleController", function(){
+          var customers = [{name:'Kavya Ranga',city:'Khammam'},{name:'Mrudhul',city:'Bhadrachalam'},{name:'Divi',city:'Hyderabad'}];
+          this.customers = customers;
+      });
+       
+    </script>
+<title>Insert title here</title>
+</head>
+<body>
+ <div ng-controller="SimpleController as simple">
+    Name : <input type="text" data-ng-model="name">
+    
+    <ul>
+      <li ng-repeat="cut in simple.customers | filter:name | orderBy:'city' "> {{cut.name}} -- {{cut.city}}</li>
+    </ul>
+</div>
+</body>
+</html>   
